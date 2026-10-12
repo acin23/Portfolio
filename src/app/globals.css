@@ -1,0 +1,290 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* ─── Font families ─── */
+  --font-display: "Outfit", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  /* ─── Spacing scale ─── */
+  --spacing-section: 7rem;
+  --spacing-section-sm: 5rem;
+
+  /* ─── Timing ─── */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-normal: 0.5s;
+  --duration-slow: 0.8s;
+}
+
+/* ─── Light Mode (Default) ─── */
+@layer base {
+  :root {
+    /* Background: Pure White */
+    --bg-base: #FFFFFF;
+    --bg-color: #FFFFFF;
+    
+    /* Text: High Contrast Black/Dark Grays */
+    --text-primary: #0A0A0A;
+    --text-secondary: #404040;  
+    --text-muted: #737373;      
+    --text-color: var(--text-primary);
+
+    /* Ambient Background Line Color: Black */
+    --ambient-line: #000000;
+
+    /* Accent colors */
+    --accent-text: #D64933;
+    --accent-color: #D64933;
+    --accent-hover: #B83A26;
+
+    /* Surfaces & borders */
+    --surface: rgba(255, 255, 255, 0.85);
+    --surface-border: rgba(0, 0, 0, 0.08);
+    --nav-border: rgba(0, 0, 0, 0.08);
+    
+    --card-bg: var(--surface);
+    --card-bg-hover: rgba(255, 255, 255, 0.95);
+    
+    /* Chips and tags */
+    --chip-text: #0A0A0A;
+    --chip-bg: rgba(0, 0, 0, 0.05);
+    
+    /* General borders */
+    --border-color: rgba(0, 0, 0, 0.1);
+    --border-subtle: rgba(0, 0, 0, 0.05);
+    
+    /* Shadows */
+    --shadow-color: rgba(0, 0, 0, 0.05);
+  }
+
+  /* ─── Dark Mode ─── */
+  .dark {
+    /* Background: Pure Black */
+    --bg-base: #000000;
+    --bg-color: #000000;
+    
+    /* Text: High Contrast White/Light Grays */
+    --text-primary: #F5F5F5;    
+    --text-secondary: #D4D4D4;  
+    --text-muted: #A3A3A3;      
+    --text-color: var(--text-primary);
+
+    /* Ambient Background Line Color: White */
+    --ambient-line: #FFFFFF;
+
+    /* Accent colors */
+    --accent-text: #FF7F50;
+    --accent-color: #FF7F50;
+    --accent-hover: #FFA885;
+
+    /* Surfaces & borders */
+    --surface: rgba(18, 18, 18, 0.88);
+    --surface-border: rgba(255, 255, 255, 0.12);
+    --nav-border: rgba(255, 255, 255, 0.08);
+    
+    --card-bg: var(--surface);
+    --card-bg-hover: rgba(28, 28, 28, 0.95);
+    
+    /* Chips and tags */
+    --chip-text: #FFFFFF;
+    --chip-bg: rgba(255, 255, 255, 0.1);
+    
+    /* General borders */
+    --border-color: rgba(255, 255, 255, 0.15);
+    --border-subtle: rgba(255, 255, 255, 0.1);
+    
+    /* Shadows */
+    --shadow-color: rgba(0, 0, 0, 0.8);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: transparent;
+    color: var(--text-color);
+    font-family: var(--font-body);
+    transition: color 0.3s ease;
+    line-height: 1.6;
+  }
+
+  ::selection {
+    background-color: var(--accent-color);
+    color: #FFFFFF;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  a {
+    text-decoration-skip-ink: auto;
+  }
+}
+
+/* ─── Reusable layout utilities ─── */
+@layer components {
+  .section-container {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .section-container {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  .section-spacing {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-spacing {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+
+  /* Animated underline for links */
+  .link-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s var(--ease-out-expo);
+  }
+
+  .link-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Glass card - GPU optimized */
+  .glass-card {
+    background: var(--surface);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--surface-border);
+    border-radius: 1.5rem;
+    transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 4px 20px -5px var(--shadow-color);
+  }
+
+  .glass-card:hover {
+    background: var(--card-bg-hover);
+    border-color: var(--accent-color);
+  }
+
+  /* Section label */
+  .section-label {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent-text);
+    margin-bottom: 1rem;
+  }
+
+  /* Section heading */
+  .section-heading {
+    font-family: var(--font-display);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+  }
+
+  /* ─── GPU-Accelerated Infinite CSS Marquee ─── */
+  .marquee-track-left {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    backface-visibility: hidden;
+    animation: marquee-left var(--marquee-duration, 60s) linear infinite;
+  }
+
+  .marquee-track-right {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    backface-visibility: hidden;
+    animation: marquee-right var(--marquee-duration, 70s) linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track-left,
+    .marquee-track-right {
+      animation: none !important;
+      transform: none !important;
+    }
+  }
+}
+
+@keyframes marquee-left {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+/* ─── Scrollbar styling ─── */
+@layer base {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+  }
+}
+
+/* ─── Respect reduced-motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
