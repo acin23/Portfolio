@@ -167,8 +167,8 @@ export default function ProjectsSection() {
             </h2>
           </div>
           <p className="text-[var(--text-secondary)] text-sm md:text-base max-w-md font-normal leading-relaxed">
-            Real-world applications I&apos;ve contributed to — from AI-powered
-            platforms to enterprise management systems.
+            A showcase of scalable web applications I built to deliver impactful
+            digital experiences.
           </p>
         </div>
 

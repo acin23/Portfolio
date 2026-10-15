@@ -7,7 +7,7 @@ export const profileData = {
   location: "Malang, Indonesia",
   focus: ["Software Engineering", "Full Stack Development", "Data Analytics"],
   bio: "Computer Science student at BINUS University with a strong academic record and a passion for Software Engineering, Full Stack, and Data Analytics. Experienced in research, teaching, and organizational leadership, currently serving as Vice Manager of Academic Event Commission at HIMTI @Malang and as a Teaching Assistant for multiple computing courses. Open-minded and communicative, enjoys collaborating, exchanging ideas, and learning from new experiences. Eager to learn new technologies, gain practical experience, and continuously develop technical, problem-solving, and communication skills.",
-  valueStatement: "I craft digital experiences that solve real problems — from AI-powered platforms to enterprise systems.",
+  valueStatement: "Translating complex challenges into seamless digital solutions through Full-Stack Engineering and Data Analytics.",
   email: "mailto:gavratsany1987@gmail.com",
   emailDisplay: "gavratsany1987@gmail.com",
   linkedin: "https://www.linkedin.com/in/gavra-tsany-atmaja-16b020311?utm_source=share_via&utm_content=profile&utm_medium=member_ios",

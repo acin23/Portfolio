@@ -3,64 +3,24 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* ─── Font families ─── */
+  /* â”€â”€â”€ Font families â”€â”€â”€ */
   --font-display: "Outfit", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
 
-  /* ─── Spacing scale ─── */
+  /* â”€â”€â”€ Spacing scale â”€â”€â”€ */
   --spacing-section: 7rem;
   --spacing-section-sm: 5rem;
 
-  /* ─── Timing ─── */
+  /* â”€â”€â”€ Timing â”€â”€â”€ */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --duration-normal: 0.5s;
   --duration-slow: 0.8s;
 }
 
-/* ─── Light Mode (Default) ─── */
+/* --- Dark Mode (only theme) --- */
 @layer base {
   :root {
-    /* Background: Pure White */
-    --bg-base: #FFFFFF;
-    --bg-color: #FFFFFF;
-    
-    /* Text: High Contrast Black/Dark Grays */
-    --text-primary: #0A0A0A;
-    --text-secondary: #404040;  
-    --text-muted: #737373;      
-    --text-color: var(--text-primary);
-
-    /* Ambient Background Line Color: Black */
-    --ambient-line: #000000;
-
-    /* Accent colors */
-    --accent-text: #D64933;
-    --accent-color: #D64933;
-    --accent-hover: #B83A26;
-
-    /* Surfaces & borders */
-    --surface: rgba(255, 255, 255, 0.85);
-    --surface-border: rgba(0, 0, 0, 0.08);
-    --nav-border: rgba(0, 0, 0, 0.08);
-    
-    --card-bg: var(--surface);
-    --card-bg-hover: rgba(255, 255, 255, 0.95);
-    
-    /* Chips and tags */
-    --chip-text: #0A0A0A;
-    --chip-bg: rgba(0, 0, 0, 0.05);
-    
-    /* General borders */
-    --border-color: rgba(0, 0, 0, 0.1);
-    --border-subtle: rgba(0, 0, 0, 0.05);
-    
-    /* Shadows */
-    --shadow-color: rgba(0, 0, 0, 0.05);
-  }
-
-  /* ─── Dark Mode ─── */
-  .dark {
-    /* Background: Pure Black */
+    color-scheme: dark;
     --bg-base: #000000;
     --bg-color: #000000;
     
@@ -135,7 +95,7 @@
   }
 }
 
-/* ─── Reusable layout utilities ─── */
+/* â”€â”€â”€ Reusable layout utilities â”€â”€â”€ */
 @layer components {
   .section-container {
     max-width: 80rem;
@@ -221,7 +181,7 @@
     color: var(--text-primary);
   }
 
-  /* ─── GPU-Accelerated Infinite CSS Marquee ─── */
+  /* â”€â”€â”€ GPU-Accelerated Infinite CSS Marquee â”€â”€â”€ */
   .marquee-track-left {
     display: flex;
     width: max-content;
@@ -257,7 +217,7 @@
   100% { transform: translate3d(0, 0, 0); }
 }
 
-/* ─── Scrollbar styling ─── */
+/* â”€â”€â”€ Scrollbar styling â”€â”€â”€ */
 @layer base {
   ::-webkit-scrollbar {
     width: 6px;
@@ -277,7 +237,7 @@
   }
 }
 
-/* ─── Respect reduced-motion ─── */
+/* â”€â”€â”€ Respect reduced-motion â”€â”€â”€ */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

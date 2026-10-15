@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { ThemeToggle } from "./ThemeToggle";
 import { profileData } from "@/data/profile";
 import { Download, Menu, X } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
@@ -81,7 +80,6 @@ export default function Navbar() {
 
           {/* Desktop Right Actions */}
           <div className="hidden lg:flex items-center gap-4">
-            <ThemeToggle />
             <a
               href={profileData.resumePath}
               target="_blank"
@@ -95,7 +93,6 @@ export default function Navbar() {
 
           {/* Mobile Right Controls */}
           <div className="flex lg:hidden items-center gap-3">
-            <ThemeToggle />
             <button
               onClick={() => setMobileOpen(true)}
               className="p-2 rounded-xl border border-[var(--surface-border)] text-[var(--text-primary)] hover:bg-[var(--surface)] transition-colors"
