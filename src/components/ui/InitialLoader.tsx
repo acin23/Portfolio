@@ -21,6 +21,7 @@ export default function InitialLoader() {
       return;
     }
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLoading(true);
     document.body.style.overflow = "hidden";
 

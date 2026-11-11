@@ -11,7 +11,7 @@ interface ProjectGalleryProps {
   projectTitle: string;
 }
 
-export default function ProjectGallery({ items, projectTitle }: ProjectGalleryProps) {
+export default function ProjectGallery({ items }: ProjectGalleryProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const openLightbox = (index: number) => {
